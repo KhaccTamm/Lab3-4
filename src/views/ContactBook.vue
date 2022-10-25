@@ -1,16 +1,16 @@
 <template>
   <div class="page row">
-    <div class="col-md-10"><InputSearch v-model="searchText" /></div>
+    <div class="col-md-10"><input-search v-model="searchText"> </input-search></div>
     <div class="mt-3 col-md-6">
       <h4>
         Danh bạ
         <i class="fas fa-address-book"></i>
       </h4>
-      <ContactList
+      <contact-list
         v-if="filteredContactsCount > 0"
         :contacts="filteredContacts"
         v-model:activeIndex="activeIndex"
-      />
+      ></contact-list>
       <p v-else>Không có liên hệ nào.</p>
       <div class="mt-3 row justify-content-around align-items-center">
         <button class="btn btn-sm btn-primary" @click="refreshList()">
@@ -30,7 +30,7 @@
           Chi tiết Liên hệ
           <i class="fas fa-address-card"></i>
         </h4>
-        <ContactCard :contact="activeContact" />
+        <contact-card :contact="activeContact" > </contact-card>
         <router-link
           :to="{ name: 'contact.edit', params: { id: activeContact.id } }"
         >
